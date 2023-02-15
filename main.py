@@ -1,14 +1,6 @@
-länge = 0
-index = 0
-c = ""
-four = ""
-ret = ""
-ergebnis = ""
-rest = 0
-zahl2 = 0
-binstring = ""
 def bin2hex(bin1: str):
-    global länge, c, four, ret, index
+    global ret, länge, c, four, index
+    ret = ""
     länge = len(bin1) / 4
     while index <= länge:
         c = ""
@@ -62,10 +54,64 @@ def dez2bin(zahl22: number):
         if zahl22 == 0:
             break
     return ergebnis
+def hex2bin(hex1: str):
+    global länge, ret, c, four, index
+    länge = len(hex1)
+    ret = ""
+    while index <= länge:
+        c = ""
+        four = hex1.substr(index, 1)
+        if four == "0":
+            c = "0000"
+        elif four == "1":
+            c = "0001"
+        elif four == "2":
+            c = "0010"
+        elif four == "3":
+            c = "0011"
+        elif four == "4":
+            c = "0100"
+        elif four == "5":
+            c = "0101"
+        elif four == "6":
+            c = "0110"
+        elif four == "7":
+            c = "0111"
+        elif four == "8":
+            c = "1000"
+        elif four == "9":
+            c = "1001"
+        elif four == "A":
+            c = "1010"
+        elif four == "B":
+            c = "1011"
+        elif four == "C":
+            c = "1100"
+        elif four == "D":
+            c = "1101"
+        elif four == "E":
+            c = "1110"
+        elif four == "F":
+            c = "1111"
+        ret = "" + ret + c
+        index += 1
+    return ret
+binstring = ""
+zahl222 = 0
+rest = 0
+ergebnis = ""
+four = ""
+c = ""
+index = 0
+länge = 0
+ret = ""
+zahl2222 = 0
+zahl2 = 0
+zahl2223 = 0
 
 def on_forever():
     global binstring
-    binstring = bin2hex("11000110")
-    basic.show_string(binstring)
+    binstring = hex2bin("0F")
+    basic.show_string("" + (binstring))
     basic.pause(2000)
 basic.forever(on_forever)
